@@ -2,16 +2,47 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
-  <title>Tudor Costin Florian – laboratoare</title>
+  <title>Bardici Stefan si Tudor Costin</title>
+  <style>
+  
+    ul.laboratoare-butoane {
+      list-style-type: none; 
+      padding: 0;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px; 
+    }
+
+    ul.laboratoare-butoane li a {
+      display: inline-block;
+      width: 280px; 
+      text-align: center;
+      background-color: #007bff; 
+      color: #ffffff; 
+      text-decoration: none; 
+      padding: 12px 0;
+      border-radius: 6px; 
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    
+    ul.laboratoare-butoane li a:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-  <h1>Tudor Costin Florian</h1>
+  <h1>Bardici Stefan si Tudor Costin</h1>
   <p>Programarea aplicațiilor web – subgrupa 1342B</p>
 
   <h2>Laboratoare</h2>
-  <ul>
+  <ul class="laboratoare-butoane">
     <li><a href="L1/">Laboratorul 1 – HTML</a></li>
-    <li><a href="L2/">Laboratorul 2 - HTML</a></li>
+    <li><a href="L2/">Laboratorul 2 – HTML si CSS</a></li>
+    <li><a href="L3/index.html">Laboratorul 3 – HTML si CSS</a></li>
   </ul>
 </body>
 </html>
