@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Garaj</title>
+	<script>
+function afiseazaGaraj(){
+	var lista = JSON.parse(localStorage.getItem("garaj")) || [];
+	document.getElementById("numar").innerHTML = "Număr de mașini: " + lista.length;
+	var t = "<table border='1'><tr><th>Tip</th><th>Model</th><th>Culoare</th><th>An fabricatie</th><th>Combustibil</th><th></th></tr>";
+	for(var i = 0; i < lista.length; i++){
+		t = t + "<tr>" +
+		"<td>" + lista[i].tip + "</td>" +
+		"<td>" + lista[i].model + "</td>" +
+		"<td>" + lista[i].culoare + "</td>" +
+		"<td>" + lista[i].anFab + "</td>" +
+		"<td>" + lista[i].combustibil + "</td>" +
+		"<td><button type='button' onclick='stergeMasina(" + i + ")'>Șterge</button></td>" +
+		"</tr>";
+	}
+	t = t + "</table>";
+	document.getElementById("tabel").innerHTML = t;
+}
+
+function adaugaMasina(){
+	var lista = JSON.parse(localStorage.getItem("garaj")) || [];
+	var t = document.getElementById("tip").value;
+	var m = document.getElementById("model").value;
+	var c = document.getElementById("culoare").value;
+	var a = document.getElementById("an").value;
+	var cb = document.getElementById("combustibil").value;
+	var masina = {tip : t, model : m, culoare : c, anFab : a, combustibil : cb};
+	lista.push(masina);
+	localStorage.setItem("garaj", JSON.stringify(lista));
+	afiseazaGaraj();
+	return false;
+}
+
+function stergeMasina(i){
+	var lista = JSON.parse(localStorage.getItem("garaj")) || [];
+	lista.splice(i, 1);
+	localStorage.setItem("garaj", JSON.stringify(lista));
+	afiseazaGaraj();
+}
+</script>
+</head>
+<body onload="afiseazaGaraj()">
+<div style="background-color:ForestGreen;color:white;font-size:200%">
+	<p>Garaj</p>
+	<form onsubmit="return adaugaMasina()">
+		<label for="tip">Tip</label> <input id="tip" required>
+		<label for="model">Model</label> <input id="model" required>
+		<label for="culoare">Culoare</label> <input id="culoare" required>
+		<label for="an">An fabricatie</label> <input id="an" required>
+		<label for="combustibil">Combustibil</label> <input id="combustibil" required>
+		<button type="submit">Salvează</button>
+	</form>
+	<p id="numar"></p>
+	<div id="tabel"></div>
+</div>
+</body>
+</html>
