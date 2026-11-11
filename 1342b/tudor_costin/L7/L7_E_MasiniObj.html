@@ -5,13 +5,14 @@
     <title>Masini - abordare cu folosirea de obiecte</title>
 	<script>
 function loadMjs(){
-var mJS = {tip : "Dacia", model : "Logan", culoare : "verde", anFab : 2012};
+var mJS = {tip : "Dacia", model : "Logan", culoare : "verde", anFab : 2012, combustibil : "benzina"};
 document.getElementById("mjs").innerHTML = 
 "<ul>"+
 "<li>Tip: " + mJS.tip +"</li>" +
 "<li>Model: "  + mJS.model +"</li>" +
 "<li>Culoare: "  + mJS.culoare + "</li>" +
 "<li>An fabricatie: "  + mJS.anFab + "</li>" +
+"<li>Combustibil: "  + mJS.combustibil + "</li>" +
 "</ul>";
 }
 
@@ -24,6 +25,7 @@ function afiseaza(stocare, id){
 		"<li>Model: "  + m.model +"</li>" +
 		"<li>Culoare: "  + m.culoare + "</li>" +
 		"<li>An fabricatie: "  + m.anFab + "</li>" +
+		"<li>Combustibil: "  + m.combustibil + "</li>" +
 		"</ul>";
 	} else {
 		document.getElementById(id).innerHTML = "Nicio mașină salvată";
@@ -40,7 +42,8 @@ function loadMls(){
 	var mL = document.getElementById("modell").value;
 	var cL = document.getElementById("culoarel").value;
 	var aL = document.getElementById("anl").value;
-	var masinaL = {tip : tL, model : mL, culoare : cL, anFab : aL};
+	var cbL = document.getElementById("combustibill").value;
+	var masinaL = {tip : tL, model : mL, culoare : cL, anFab : aL, combustibil : cbL};
 	localStorage.setItem("masina", JSON.stringify(masinaL));
 	afiseaza(localStorage, "mls");
 	return false;
@@ -51,7 +54,8 @@ function loadMss(){
 	var mS = document.getElementById("models").value;
 	var cS = document.getElementById("culoares").value;
 	var aS = document.getElementById("ans").value;
-	var masinaS = {tip : tS, model : mS, culoare : cS, anFab : aS};
+	var cbS = document.getElementById("combustibils").value;
+	var masinaS = {tip : tS, model : mS, culoare : cS, anFab : aS, combustibil : cbS};
 	sessionStorage.setItem("masina", JSON.stringify(masinaS));
 	afiseaza(sessionStorage, "mss");
 	return false;
@@ -71,6 +75,7 @@ function loadMss(){
 		<label for="modell">Model</label> <input id="modell" required>
 		<label for="culoarel">Culoare</label> <input id="culoarel" required>
 		<label for="anl">An fabricatie</label> <input id="anl" required>
+		<label for="combustibill">Combustibil</label> <input id="combustibill" required>
 		<button type="submit">Salvează</button>
 		<button type="button" onclick="sterge(localStorage, 'mls')">Șterge</button>
 	</form>
@@ -84,6 +89,7 @@ function loadMss(){
 		<label for="models">Model</label> <input id="models" required>
 		<label for="culoares">Culoare</label> <input id="culoares" required>
 		<label for="ans">An fabricatie</label> <input id="ans" required>
+		<label for="combustibils">Combustibil</label> <input id="combustibils" required>
 		<button type="submit">Salvează</button>
 		<button type="button" onclick="sterge(sessionStorage, 'mss')">Șterge</button>
 	</form>
