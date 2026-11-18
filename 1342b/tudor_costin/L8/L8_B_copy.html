@@ -98,5 +98,17 @@ function adaugaMasina() {
   return false;
 }
 </script>
+<!-- Răspunsuri Exercițiul 4:
+(a) Cheia masinaN conține un string format JSON care reprezintă obiectul ultimei mașini adăugate, 
+având stocate doar datele primitive, inclusiv randNou care a fost transformat în string.
+(b) JSON.stringify ignoră/elimină metodele (funcțiile) dintr-un obiect. 
+Dacă randNou nu ar fi fost transformat în string text, s-ar fi pierdut și nu am mai fi avut acces la generarea 
+rândului de tabel la reîncărcare.
+(c) La reîncărcare, randNou nu mai este o metodă (funcție), ci o simplă proprietate text ce conține deja 
+structura HTML a rândului "<tr>...</tr>", generată și salvată înainte de stringify.
+ Prin urmare, o apelăm fără paranteze.
+(d) Apare o singură mașină adăugată (ultima), la fel ca în L8_A, deoarece obiectul curent suprascrie vechea
+valoare din localStorage.masinaN de fiecare dată când este chemat localStorage.setItem().
+-->
 </body>
 </html>

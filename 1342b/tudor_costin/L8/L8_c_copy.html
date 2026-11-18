@@ -101,5 +101,13 @@ function adaugaMasina() {
   return false;
 }
 </script>
+<!--6)
+Spre deosebire de L8_B, aici se păstrează un tablou (array) denumit "masini2Store", stocat în localStorage 
+sub cheia "carsArray". Acest lucru aduce ca noutate faptul că datele nu se mai suprascriu la fiecare adăugare. 
+Cand pagina se reîncarcă, bucla for iterează prin tabloul extras din localStorage 
+și re-randează fiecare mașină pe rând (folosind proprietatea randNou salvată anterior ca string). 
+Astfel, la reîncărcare, apar absolut TOATE mașinile adăugate până în acel moment, 
+în ordinea în care au fost introduse.
+-->
 </body>
 </html>
